@@ -12,7 +12,7 @@ apikey_duckgo = os.getenv("APIKEY_DUCKGO")
 
 search_engine_id = os.getenv("SEARCH_ENGINE")
 
-query = "desarrollador de software"
+query = "filetype:sql 'Mysql dump' (pass|password|passwd|pwd) "
 
 page=1
 
@@ -25,13 +25,13 @@ def main():
 
     resultGoogle = strategyGoogle.executeSearch(query, page, pages)
 
-    print(resultGoogle)
+    print('google result', resultGoogle)
 
     strategyGoogle = StrategySearch(DuckSearch(apikey_duckgo))
 
     resultDuck = strategyGoogle.executeSearch(query, page, pages)
 
-    print(resultDuck)
+    print('duck result', resultDuck)
 
 main()
 

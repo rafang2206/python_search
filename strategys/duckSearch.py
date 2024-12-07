@@ -16,6 +16,9 @@ class DuckSearch(Search):
             response = requests.get(url)
             if response.status_code == 200 :
                 data = response.json()
+                if data.get('error') :
+                    print(data.get('error'))
+                    return
                 results = data.get('organic_results')
                 cresults = self.custom_results(results)
                 final_result.extend(cresults)

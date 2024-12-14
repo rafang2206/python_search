@@ -1,4 +1,4 @@
-from search import Search
+from strategys.search import Search
 
 class StrategySearch:
     def __init__(self, strategy: Search):

@@ -1,5 +1,5 @@
 import requests
-from search import Search
+from strategys.search import Search
 
 class DuckSearch(Search):
     def __init__(self, api_key):

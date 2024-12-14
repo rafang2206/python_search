@@ -1,5 +1,5 @@
 import requests
-from search import Search
+from strategys.search import Search
 
 class GoogleSearch(Search):
     def __init__(self, api_key, search_engine):
@@ -25,6 +25,7 @@ class GoogleSearch(Search):
                 print(f"Error al obtener la data, status: {response.status_code}")
                 break
         return final_result
+    
 
     def get_query(self, query, start_page, pages, lang):
         return f"https://www.googleapis.com/customsearch/v1?key={self.api_key}&cx={self.search_engine}&q={query}&start={start_page}&lr={lang}"
@@ -36,7 +37,7 @@ class GoogleSearch(Search):
             cresult["title"] = r.get('title')
             cresult["link"] = r.get('link')
             cresult["description"] = r.get('snippet')
-            print(r.get('title'), r.get('link'), sep=" - ")
-            print("\n")
+            # print(r.get('title'), r.get('link'), sep=" - ")
+            # print("\n")
             custom_results.append(cresult)
         return custom_results
